@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <configuration>
+    <name>HT6x3x</name>
+    <toolchain>
+      <name>ARM</name>
+    </toolchain>
+    <debug>1</debug>
+    <settings>
+      <name>C-STAT</name>
+      <archiveVersion>1</archiveVersion>
+      <data>
+        <version>1</version>
+        <cstatargs>
+          <useExtraArgs>0</useExtraArgs>
+          <extraArgs></extraArgs>
+          <analyzeTimeout>600</analyzeTimeout>
+          <enableParallel>0</enableParallel>
+          <parallelThreads>1</parallelThreads>
+        </cstatargs>
+        <cstatsettings>
+          <package checked="true" name="STDCHECKS">
+            <check checked="true" name="ARR"/>
+            <check checked="true" name="ATH"/>
+            <check checked="true" name="CAST"/>
+            <check checked="true" name="CATCH"/>
+            <check checked="true" name="COMMA"/>
+            <check checked="true" name="COMMENT"/>
+            <check checked="false" name="CONCURRENCY"/>
+            <check checked="true" name="CONST"/>
+            <check checked="true" name="COP"/>
+            <check checked="true" name="CPU"/>
+            <check checked="true" name="DECL"/>
+            <check checked="true" name="DEFINE"/>
+            <check checked="true" name="ENUM"/>
+            <check checked="true" name="EXP"/>
+            <check checked="true" name="EXPR"/>
+            <check checked="false" name="FPT"/>
+            <check checked="true" name="FUNC"/>
+            <check checked="true" name="INCLUDE"/>
+            <check checked="true" name="INT"/>
+            <check checked="true" name="ITR"/>
+            <check checked="true" name="LIB"/>
+            <check checked="true" name="LOGIC"/>
+            <check checked="false" name="MEM"/>
+            <check checked="false" name="POR"/>
+            <check checked="true" name="PTR"/>
+            <check checked="true" name="RED"/>
+            <check checked="true" name="RESOURCE"/>
+            <check checked="false" name="SEM"/>
+            <check checked="true" name="SIZEOF"/>
+            <check checked="true" name="SPC"/>
+            <check checked="true" name="STR"/>
+            <check checked="true" name="STRUCT"/>
+            <check checked="true" name="SWITCH"/>
+            <check checked="true" name="THROW"/>
+            <check checked="true" name="UNION"/>
+          </package>
+          <package checked="true" name="MISRAC2004">
+            <check checked="true" name="MISRAC2004-1"/>
+            <check checked="true" name="MISRAC2004-2"/>
+            <check checked="true" name="MISRAC2004-4"/>
+            <check checked="true" name="MISRAC2004-5"/>
+            <check checked="true" name="MISRAC2004-6"/>
+            <check checked="true" name="MISRAC2004-7"/>
+            <check checked="true" name="MISRAC2004-8"/>
+            <check checked="true" name="MISRAC2004-9"/>
+            <check checked="true" name="MISRAC2004-10"/>
+            <check checked="true" name="MISRAC2004-11"/>
+            <check checked="true" name="MISRAC2004-12"/>
+            <check checked="true" name="MISRAC2004-13"/>
+            <check checked="true" name="MISRAC2004-14"/>
+            <check checked="true" name="MISRAC2004-15"/>
+            <check checked="true" name="MISRAC2004-16"/>
+            <check checked="true" name="MISRAC2004-17"/>
+            <check checked="true" name="MISRAC2004-18"/>
+            <check checked="true" name="MISRAC2004-19"/>
+            <check checked="true" name="MISRAC2004-20"/>
+          </package>
+          <package checked="true" name="MISRAC2012">
+            <check checked="true" name="MISRAC2012-Dir-4"/>
+            <check checked="true" name="MISRAC2012-Rule-1"/>
+            <check checked="true" name="MISRAC2012-Rule-2"/>
+            <check checked="true" name="MISRAC2012-Rule-3"/>
+            <check checked="true" name="MISRAC2012-Rule-4"/>
+            <check checked="true" name="MISRAC2012-Rule-5"/>
+            <check checked="true" name="MISRAC2012-Rule-6"/>
+            <check checked="true" name="MISRAC2012-Rule-7"/>
+            <check checked="true" name="MISRAC2012-Rule-8"/>
+            <check checked="true" name="MISRAC2012-Rule-9"/>
+            <check checked="true" name="MISRAC2012-Rule-10"/>
+            <check checked="true" name="MISRAC2012-Rule-11"/>
+            <check checked="true" name="MISRAC2012-Rule-12"/>
+            <check checked="true" name="MISRAC2012-Rule-13"/>
+            <check checked="true" name="MISRAC2012-Rule-14"/>
+            <check checked="true" name="MISRAC2012-Rule-15"/>
+            <check checked="true" name="MISRAC2012-Rule-16"/>
+            <check checked="true" name="MISRAC2012-Rule-17"/>
+            <check checked="true" name="MISRAC2012-Rule-18"/>
+            <check checked="true" name="MISRAC2012-Rule-19"/>
+            <check checked="true" name="MISRAC2012-Rule-20"/>
+            <check checked="true" name="MISRAC2012-Rule-21"/>
+            <check checked="true" name="MISRAC2012-Rule-22"/>
+          </package>
+          <package checked="true" name="MISRAC++2008">
+            <check checked="true" name="MISRAC++2008-0-1"/>
+            <check checked="true" name="MISRAC++2008-0-2"/>
+            <check checked="true" name="MISRAC++2008-0-3"/>
+            <check checked="true" name="MISRAC++2008-2-3"/>
+            <check checked="true" name="MISRAC++2008-2-7"/>
+            <check checked="true" name="MISRAC++2008-2-10"/>
+            <check checked="true" name="MISRAC++2008-2-13"/>
+            <check checked="true" name="MISRAC++2008-3-1"/>
+            <check checked="true" name="MISRAC++2008-3-9"/>
+            <check checked="true" name="MISRAC++2008-4-5"/>
+            <check checked="true" name="MISRAC++2008-5-0"/>
+            <check checked="true" name="MISRAC++2008-5-2"/>
+            <check checked="true" name="MISRAC++2008-5-3"/>
+            <check checked="true" name="MISRAC++2008-5-8"/>
+            <check checked="true" name="MISRAC++2008-5-14"/>
+            <check checked="true" name="MISRAC++2008-5-18"/>
+            <check checked="true" name="MISRAC++2008-5-19"/>
+            <check checked="true" name="MISRAC++2008-6-2"/>
+            <check checked="true" name="MISRAC++2008-6-3"/>
+            <check checked="true" name="MISRAC++2008-6-4"/>
+            <check checked="true" name="MISRAC++2008-6-5"/>
+            <check checked="true" name="MISRAC++2008-6-6"/>
+            <check checked="true" name="MISRAC++2008-7-1"/>
+            <check checked="true" name="MISRAC++2008-7-2"/>
+            <check checked="true" name="MISRAC++2008-7-4"/>
+            <check checked="true" name="MISRAC++2008-7-5"/>
+            <check checked="true" name="MISRAC++2008-8-0"/>
+            <check checked="true" name="MISRAC++2008-8-4"/>
+            <check checked="true" name="MISRAC++2008-8-5"/>
+            <check checked="true" name="MISRAC++2008-9-3"/>
+            <check checked="true" name="MISRAC++2008-9-5"/>
+            <check checked="true" name="MISRAC++2008-9-6"/>
+            <check checked="true" name="MISRAC++2008-12-1"/>
+            <check checked="true" name="MISRAC++2008-15-0"/>
+            <check checked="true" name="MISRAC++2008-15-1"/>
+            <check checked="true" name="MISRAC++2008-15-3"/>
+            <check checked="true" name="MISRAC++2008-15-5"/>
+            <check checked="true" name="MISRAC++2008-16-0"/>
+            <check checked="true" name="MISRAC++2008-16-2"/>
+            <check checked="true" name="MISRAC++2008-16-3"/>
+            <check checked="true" name="MISRAC++2008-17-0"/>
+            <check checked="true" name="MISRAC++2008-18-0"/>
+            <check checked="true" name="MISRAC++2008-18-2"/>
+            <check checked="true" name="MISRAC++2008-18-4"/>
+            <check checked="true" name="MISRAC++2008-18-7"/>
+            <check checked="true" name="MISRAC++2008-19-3"/>
+            <check checked="true" name="MISRAC++2008-27-0"/>
+          </package>
+        </cstatsettings>
+      </data>
+    </settings>
+    <settings>
+      <name>RuntimeChecking</name>
+      <archiveVersion>0</archiveVersion>
+      <data>
+        <version>2</version>
+        <wantNonLocal>1</wantNonLocal>
+        <debug>1</debug>
+        <option>
+          <name>GenRtcDebugHeap</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GenRtcEnableBoundsChecking</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GenRtcCheckPtrsNonInstrMem</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>GenRtcTrackPointerBounds</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>GenRtcCheckAccesses</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>GenRtcGenerateEntries</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GenRtcNrTrackedPointers</name>
+          <state>1000</state>
+        </option>
+        <option>
+          <name>GenRtcIntOverflow</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GenRtcIncUnsigned</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GenRtcIntConversion</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GenRtcInclExplicit</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GenRtcIntShiftOverflow</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GenRtcInclUnsignedShiftOverflow</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GenRtcUnhandledCase</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GenRtcDivByZero</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GenRtcEnable</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GenRtcCheckPtrsNonInstrFunc</name>
+          <state>1</state>
+        </option>
+      </data>
+    </settings>
+  </configuration>
+  <group>
+    <name>Framework</name>
+    <file>
+      <name>$PROJ_DIR$\..\Source\framework\flash_loader.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Source\framework\flash_loader_asm.s</name>
+    </file>
+  </group>
+  <group>
+    <name>lib</name>
+    <file>
+      <name>$PROJ_DIR$\..\Source\library\src\core_cm0.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Source\library\src\ht6xxx_cmu.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Source\library\src\ht6xxx_flash.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Source\library\src\system_ht6xxx.c</name>
+    </file>
+  </group>
+  <file>
+    <name>$PROJ_DIR$\HT6X3X.icf</name>
+  </file>
+</project>
+
+
