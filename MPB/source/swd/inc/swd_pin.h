@@ -48,7 +48,7 @@
 //#define PGout(n)   BIT_ADDR(GPIOG_ODR_Addr,n)  // ‰≥ˆ 
 //#define PGin(n)    BIT_ADDR(GPIOG_IDR_Addr,n)  // ‰»Î
 
-#if (1)
+#if (0)
 
 #define SWDIO_GPIO             GPIOB
 #define SWDIO_PIN              11

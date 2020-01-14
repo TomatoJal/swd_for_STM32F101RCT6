@@ -210,9 +210,7 @@ static void RCC_Configuration(void)
   NVIC_DeInit();
 
   /* Enable HSE */
-    /* Enable HSE */
-  RCC_HSEConfig(RCC_HSE_Bypass);
-  //RCC_HSEConfig(RCC_HSE_ON);
+  RCC_HSEConfig(RCC_HSE_ON);
 
   /* Wait till HSE is ready */
   HSEStartUpStatus = RCC_WaitForHSEStartUp();
@@ -235,7 +233,7 @@ static void RCC_Configuration(void)
     RCC_PCLK1Config(RCC_HCLK_Div1);
 
     /* PLLCLK = 8MHz * 4 = 32 MHz */
-    RCC_PLLConfig(RCC_PLLSource_HSE_Div1, RCC_PLLMul_9);
+    RCC_PLLConfig(RCC_PLLSource_HSE_Div1, RCC_PLLMul_4);
 
     /* Enable PLL */
     RCC_PLLCmd(ENABLE);

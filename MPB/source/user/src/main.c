@@ -54,7 +54,7 @@ int main(void)
 #ifdef DEBUG
     debug();
 #endif
-	SystemInit();           // system initialization
+    SystemInit();           // system initialization
     PowerOnSelfTest();		// power on self test
     FEED_DOG();             // feed dog
     
