@@ -51,7 +51,6 @@ static uint8 Target_RamCheck(void)
     uint32 val = 0;
     /*Í£Ö¹ÄÚºË*/
     Check(SWD_CoreStop());
-    Check(SWD_WriteWord(0x40010004, 0x0000AAFF));
 #if (RAM_CHECK == 1)    
     /*¼ì²éRAM´íÎó*/
     for(uint32 i = 0 ; i < TargetInfo.bootloader_size/4 ; i++)
@@ -73,8 +72,7 @@ static uint8 Target_RamCheck(void)
         if(val != 0xFFFFFFFF)
         {
             return RESULT_ERROR;
-        }
-        Check(SWD_WriteWord(0x40010004, 0x0000AAFF));        
+        }      
     }
 #endif     
     return RESULT_OK;
@@ -99,7 +97,6 @@ static uint8 Target_BootLoader(void)
     Check(SWD_WriteWord(NVIC_AIRCR, VECTKEY | VECTRESET));
     /*¸´Î»ÄÚºË*/
     Check(SWD_CoreReset()); 
-    Check(SWD_WriteWord(0x40010004, 0x0000AAFF));
     /*Ð´bootloader*/
     for(i = 0 ; i < ((TargetInfo.bootloader_size / 1024)+1) ; i++)
     {
@@ -117,7 +114,6 @@ static uint8 Target_BootLoader(void)
                                        ImageArr, 
                                        1024 ));
         } 
-        Check(SWD_WriteWord(0x40010004, 0x0000AAFF));
     }
     /*ÅäÖÃxPSRÎª0x01000000*/
     Check(SWD_WriteCoreRegister(xPSR , xPSRVALUE));
@@ -133,8 +129,7 @@ static uint8 Target_BootLoader(void)
     MCUDelayMs(1000);
     Check(SWD_CoreStop());
     Check(SWD_ReadCoreRegister(REGISTWE_R(15) , &val));
-    Check(SWD_WriteWord(0x40010004, 0x0000AAFF));
-    if((val < 0x20000000)||(val > 0x20010000))
+    if((val < 0x20000000)||(val > 0x20008000))
     {
         FailRetry++;
     }
@@ -165,7 +160,6 @@ static uint8 Target_GetInfo(void)
                 TargetInfo.RAM_size = (TargetInfo.status & 0x00FFFFFF);
                 return RESULT_OK;
             }
-            Check(SWD_WriteWord(0x40010004, 0x0000AAFF));
         }
     }
     /*³¬Ê±*/
@@ -203,7 +197,6 @@ static uint8 Target_Erase(void)
                 Check(SWD_WriteWord(TargetInfo.status_addr, ERASE_END));
                 return RESULT_ERROR;
             }
-            Check(SWD_WriteWord(0x40010004, 0x0000AAFF));
         }
     }
     /*³¬Ê±*/
@@ -247,7 +240,6 @@ static uint8 Target_Program(void)
             {
                 break;
             }
-            Check(SWD_WriteWord(0x40010004, 0x0000AAFF));
         }
     }
     /*³¬Ê±*/
@@ -288,7 +280,6 @@ static uint8 Target_Program(void)
                 Check(SWD_WriteWord(TargetInfo.status_addr,PROGRAM_END)); 
                 return RESULT_ERROR;
             }
-            Check(SWD_WriteWord(0x40010004, 0x0000AAFF));
         }
     }
     return RESULT_TIMEOUT;
@@ -327,7 +318,6 @@ static uint8 Target_Verify(void)
                     return  RESULT_ERROR;
                 }
             } 
-            Check(SWD_WriteWord(0x40010004, 0x0000AAFF));
 
         }
     }
@@ -409,7 +399,7 @@ uint8 Target_API_Erase(void)
 {
   
     if(SWD_Init())          return DOWNLOAD_ERROR_INIT;
-    if(Target_RamCheck())   return DOWNLOAD_ERROR_INIT;
+//    if(Target_RamCheck())   return DOWNLOAD_ERROR_INIT;
     if(Target_BootLoader()) return DOWNLOAD_ERROR_BOOT;
     if(Target_FailRetry())  return DOWNLOAD_ERROR_UNKNOW;
     if(Target_GetInfo())    return DOWNLOAD_ERROR_GETINFO;
@@ -426,7 +416,7 @@ uint8 Target_API_Erase(void)
 uint8 Target_API_PROGRAM(void)
 {
     if(SWD_Init())          return DOWNLOAD_ERROR_INIT;
-    if(Target_RamCheck())   return DOWNLOAD_ERROR_INIT;
+//    if(Target_RamCheck())   return DOWNLOAD_ERROR_INIT;
     if(Target_BootLoader()) return DOWNLOAD_ERROR_BOOT;
     if(Target_FailRetry())  return DOWNLOAD_ERROR_UNKNOW;
     if(Target_GetInfo())    return DOWNLOAD_ERROR_GETINFO;
@@ -471,14 +461,14 @@ uint8 Target_API_AUTO(void)
 //    if(Target_Reset())      return DOWNLOAD_ERROR_RESET;    //23771 447
     
     if(SWD_Init())          return DOWNLOAD_ERROR_INIT;
-    if(Target_RamCheck())   return DOWNLOAD_ERROR_INIT;
+//    if(Target_RamCheck())   return DOWNLOAD_ERROR_INIT;
     if(Target_BootLoader()) return DOWNLOAD_ERROR_BOOT;
     if(Target_FailRetry())  return DOWNLOAD_ERROR_UNKNOW;
     if(Target_GetInfo())    return DOWNLOAD_ERROR_GETINFO;
     if(Target_Erase())      return DOWNLOAD_ERROR_ERASE;
     if(Target_Program())    return DOWNLOAD_ERROR_PROGRAM; 
     if(Target_Verify())     return DOWNLOAD_ERROR_VERIFY;  
-    if(CalRTC_Process())    return CalRTC_ERROR;
+//    if(CalRTC_Process())    return CalRTC_ERROR;
     if(Target_Reset())      return DOWNLOAD_ERROR_RESET;
     
 #if (0)

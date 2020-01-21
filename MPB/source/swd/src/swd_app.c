@@ -474,7 +474,6 @@ uint8 SWD_Init(void)
     while((tmp & (CDBGPWRUPACK | CSYSPWRUPACK )) != (CDBGPWRUPACK | CSYSPWRUPACK));
     /*复位内核*/
     Check(SWD_CoreReset());
-    Check(SWD_WriteWord(0x40010004, 0x0000AAFF));
     /*读AP_IDR寄存器并与正确值比较*/
     //0x0477 0021
     //0000 Revision,第一次执行 AP 设计时该位为零。在对设计每作一次较大的修改时，对该位进行更新

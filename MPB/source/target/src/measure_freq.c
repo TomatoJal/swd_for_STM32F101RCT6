@@ -273,11 +273,6 @@ uint8 CheckMeasureResult(void)
         {
             return RESULT_ERROR;
         }
-        
-        if((SysTime-tmptime) % 3000 == 0)        
-        {
-            Check(SWD_WriteWord(0x40010004, 0x0000AAFF));
-        }
     }
         
     if(DMA1_Channel2->CNDTR == 0)

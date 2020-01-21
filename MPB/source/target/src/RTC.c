@@ -104,14 +104,12 @@ static uint8 CalRTC_Init(RTCTout_TypeDef RTCToutSet)
 //    SWD_Init();
     
     Check(CalRTC_ToutSet(RTCToutSet));
-    Check(SWD_WriteWord(0x40010004, 0x0000AAFF));
     return RESULT_OK; 
 }
 
 static uint8 CalRTC_InfoBlockGet(uint8* buf)
 {
     Check(SWD_ReadMemoryArray(INFOBLOCK_ADDRESS,buf,INFOBLOCKSIZE));
-    Check(SWD_WriteWord(0x40010004, 0x0000AAFF));
     return RESULT_OK; 
 }
 
@@ -181,7 +179,6 @@ static uint8 CalRTC_RTCInfoSave()
     DFA = (int32)(Fn*128*16);
     TAB_Rx[0] += DFA;
     memcpy(TAB_Rxsave, TAB_Rx, 20);
-    Check(SWD_WriteWord(0x40010004, 0x0000AAFF));
     for(i = 0; i < 5; i++)
     {
         if((TAB_Rxsave[i]&0xFF800000) == 0xFF800000)
@@ -218,7 +215,6 @@ static uint8 CalRTC_ToffCheck()
     {
         Check(SWD_WriteHalfWord(RTC_TOFF_ADDRESS,toff));	
     }
-    Check(SWD_WriteWord(0x40010004, 0x0000AAFF));
     return RESULT_OK;  
 }  
 
@@ -244,7 +240,6 @@ static uint8 CalRTC_RTCInfoCheck()
     {
         memcpy(TAB_DFx,TAB_DFxDefault,sizeof(TAB_DFx));
     }
-    Check(SWD_WriteWord(0x40010004, 0x0000AAFF));
 #ifdef CETUS02
         //memcpy(TAB_DFx+2,TAB_DFxDefault+2,sizeof(TAB_DFx)-2);
         //将原DFA标0重新校准
@@ -273,7 +268,6 @@ static uint8 CalRTC_RTCInfoCheck()
             TAB_Rx[i] |= 0xFF800000;
         }
     }
-    Check(SWD_WriteWord(0x40010004, 0x0000AAFF));
      return RESULT_OK; 
 }
 
@@ -307,7 +301,6 @@ static uint8 CalRTC_TemperatureGet(uint16* temperature)
             }
         }
         MCUDelayMs(TEMP_GET_TIMING);
-        Check(SWD_WriteWord(0x40010004, 0x0000AAFF));
     }
  
     *temperature = (temp_sum - temp_max - temp_min)/(TEMP_GET_TIMES - 2);
@@ -343,7 +336,6 @@ static uint8 CalRTC_HT_RTC_CaldFi()
     
     Check(SWD_WriteHalfWord(RTC_DFIH_ADDRESS,DFi >>16));
     Check(SWD_WriteHalfWord(RTC_DFIL_ADDRESS,(int16)DFi));
-    Check(SWD_WriteWord(0x40010004, 0x0000AAFF));
     return RESULT_OK;        
 } 
 

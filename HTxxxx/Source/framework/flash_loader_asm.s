@@ -47,7 +47,7 @@ FlashInitEntry:
         ;; Set up the normal stack pointer.
         LDR     sp, =SFE(CSTACK)        ; End of CSTACK
 #endif
-        BL       Fl2FlashInitEntry
+         BL       Fl2FlashInitEntry
         BL       FlashBreak
 
 
