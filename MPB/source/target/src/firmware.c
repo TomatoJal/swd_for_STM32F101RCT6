@@ -129,7 +129,7 @@ static uint8 Target_BootLoader(void)
     MCUDelayMs(1000);
     Check(SWD_CoreStop());
     Check(SWD_ReadCoreRegister(REGISTWE_R(15) , &val));
-    if((val < 0x20000000)||(val > 0x20008000))
+    if((val < 0x20000000)||(val > 0x2000C000))
     {
         FailRetry++;
     }

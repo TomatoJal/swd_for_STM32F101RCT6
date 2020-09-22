@@ -24,8 +24,8 @@
 #define CALRTC_ERROR        0x77000000
 #define CALRTC_OK           0xDD000000
 
-#define PACK_SIZE           16
-#define RAM_SIZE            0xDD008000
+#define PACK_SIZE           24
+#define RAM_SIZE            0xDD00C000
 
 // Functions in this file, called from the assembly wrapper
 void Fl2FlashInitEntry(void);
@@ -42,8 +42,8 @@ uint16_t Crc16_helper(uint8_t const *p, uint32_t len, uint16_t sum);
 __root __no_init uint32_t target_status           @0x20000020;
 #pragma location = 0x20000024
 __root const char Version[16] = "BOOT_STM32_0001" ;           //@0x20000024;
-__root __no_init uint8_t  flash[1024 * 256]       @0x08000000;
-__root __no_init uint32_t image[1024 * PACK_SIZE / 4] @0x20004000;
+__root __no_init uint8_t  flash[1024 * 512]       @0x08000000;
+__root __no_init uint32_t image[1024 * PACK_SIZE / 4] @0x20006000;
 __root __no_init double   ERR;
 void Fl2FlashInitEntry()
 {
@@ -107,7 +107,7 @@ void Fl2FlashEraseWriteEntry()
             {
                 timeout = 3;
                 do{
-                    status = FLASH_ProgramWord(i*16*1024 + j*4, image[j]);
+                    status = FLASH_ProgramWord(i*PACK_SIZE*1024 + j*4, image[j]);
                     timeout --;
                 }while((status != FLASH_COMPLETE) && (timeout != 0));
             }

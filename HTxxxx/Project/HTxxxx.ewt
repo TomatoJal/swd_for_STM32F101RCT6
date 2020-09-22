@@ -249,13 +249,22 @@
       <name>$PROJ_DIR$\..\Source\library\src\core_cm0.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\Source\library\src\core_cm3.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\Source\library\src\ht6xxx_cmu.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\Source\library\src\ht6xxx_flash.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\Source\library\src\stm32f10x_flash.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\Source\library\src\system_ht6xxx.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Source\library\src\system_stm32f10x.c</name>
     </file>
   </group>
   <file>

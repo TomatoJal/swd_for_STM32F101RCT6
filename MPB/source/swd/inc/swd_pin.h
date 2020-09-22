@@ -48,60 +48,53 @@
 //#define PGout(n)   BIT_ADDR(GPIOG_ODR_Addr,n)  //输出 
 //#define PGin(n)    BIT_ADDR(GPIOG_IDR_Addr,n)  //输入
 
-#if (0)
+#if (1)
 
-#define SWDIO_GPIO             GPIOB
-#define SWDIO_PIN              11
-#define SWDIO_GPIO_PIN         GPIO_Pin_11
+#define SWDIO_GPIO             GPIOA
+#define SWDIO_PIN              9
+#define SWDIO_GPIO_PIN         GPIO_Pin_9
 
-#define SWCLK_GPIO             GPIOB
+#define SWCLK_GPIO             GPIOA//PA_10 RXD做时钟线
 #define SWCLK_PIN              10
 #define SWCLK_GPIO_PIN         GPIO_Pin_10
 
-#define SWDIO_SET_OUTPUT()     SWDIO_GPIO ->CRH &= 0XFFFF0FFF;\
-                               SWDIO_GPIO ->CRH |= 0X00003000//推挽输出
-#define SWDIO_SET_INPUT()      SWDIO_GPIO ->CRH &= 0XFFFF0FFF;\
-                               SWDIO_GPIO ->CRH |= 0X00008000//下拉输入
-#define SWDIO_SET()            PBout(SWDIO_PIN) = 1
-#define SWDIO_CLR()            PBout(SWDIO_PIN) = 0
-#define SWDIO_IN()            (PBin(SWDIO_PIN)& 0x01U)                          
-#define SWDIO_OUT(n)          {if ( n ) SWDIO_SET(); else SWDIO_CLR();}
+#define SWDIO_SET_OUTPUT()     SWDIO_GPIO ->CRH &= 0XFFFFFF0F;\
+                               SWDIO_GPIO ->CRH |= 0X00000030//推挽输出
+#define SWDIO_SET_INPUT()      SWDIO_GPIO ->CRH &= 0XFFFFFF0F;\
+                               SWDIO_GPIO ->CRH |= 0X00000080//下拉输入
                                  
 #define SWCLK_SET_OUTPUT()     SWCLK_GPIO ->CRH &= 0XFFFFF0FF;\
-                               SWCLK_GPIO ->CRH |= 0X00000300//时钟线推挽输出                                 
-#define SWCLK_SET()            PBout(SWCLK_PIN) = 1    
-#define SWCLK_CLR()            PBout(SWCLK_PIN) = 0  
-                                
+                               SWCLK_GPIO ->CRH |= 0X00000300//时钟线推挽输出 
 #else//另一对串口脚
                                  
-#define SWDIO_GPIO             GPIOC
-#define SWDIO_PIN              12
-#define SWDIO_GPIO_PIN         GPIO_Pin_12
+#define SWDIO_GPIO             GPIOD
+#define SWDIO_PIN              2
+#define SWDIO_GPIO_PIN         GPIO_Pin_2
 
-#define SWCLK_GPIO             GPIOD
-#define SWCLK_PIN              2
-#define SWCLK_GPIO_PIN         GPIO_Pin_2
+#define SWCLK_GPIO             GPIOC
+#define SWCLK_PIN              12
+#define SWCLK_GPIO_PIN         GPIO_Pin_12
 
-#define SWDIO_SET_OUTPUT()     SWDIO_GPIO ->CRH &= 0XFFF0FFFF;\
-                               SWDIO_GPIO ->CRH |= 0X00030000//推挽输出
-#define SWDIO_SET_INPUT()      SWDIO_GPIO ->CRH &= 0XFFF0FFFF;\
-                               SWDIO_GPIO ->CRH |= 0X00080000//下拉输入
-#define SWDIO_SET()            PCout(SWDIO_PIN) = 1
-#define SWDIO_CLR()            PCout(SWDIO_PIN) = 0
-#define SWDIO_IN()            (PCin(SWDIO_PIN)& 0x01U)                          
-#define SWDIO_OUT(n)          {if ( n ) SWDIO_SET(); else SWDIO_CLR();}
+#define SWDIO_SET_OUTPUT()     SWDIO_GPIO ->CRL &= 0XFFFFF0FF;\
+                               SWDIO_GPIO ->CRL |= 0X00000300//推挽输出
+#define SWDIO_SET_INPUT()      SWDIO_GPIO ->CRL &= 0XFFFFF0FF;\
+                               SWDIO_GPIO ->CRL |= 0X00000800//下拉输入
                                  
-#define SWCLK_SET_OUTPUT()     SWCLK_GPIO ->CRL &= 0XFFFFF0FF;\
-                               SWCLK_GPIO ->CRL |= 0X00000300//时钟线推挽输出                                 
-#define SWCLK_SET()            PDout(SWCLK_PIN) = 1    
-#define SWCLK_CLR()            PDout(SWCLK_PIN) = 0  
-                                                                
+#define SWCLK_SET_OUTPUT()     SWCLK_GPIO ->CRH &= 0XFFF0FFFF;\
+                               SWCLK_GPIO ->CRH |= 0X00030000//时钟线推挽输出
 #endif
                                  
-                              
+#define SWCLK_SET()            PAout(SWCLK_PIN) = 1    
+#define SWCLK_CLR()            PAout(SWCLK_PIN) = 0  
+                                 
+#define SWDIO_SET()            PAout(SWDIO_PIN) = 1
+#define SWDIO_CLR()            PAout(SWDIO_PIN) = 0
+
+#define SWDIO_IN()            (PAin(SWDIO_PIN)& 0x01U)//BITBAND_REG(PTB->PDIR, n)                               
+#define SWDIO_OUT(n)          {if ( n ) SWDIO_SET(); else SWDIO_CLR();}                                 
                                      
 /* pin interface */
-void SWD_PinInit(void);
+void SW_PinInit(void);
 
 #endif
 

@@ -89,7 +89,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>HT6X3X	Hitrendtech HT6X3X</state>
+          <state>STM32F101xC	ST STM32F101xC</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -128,7 +128,7 @@
         <option>
           <name>GBECoreSlave</name>
           <version>22</version>
-          <state>34</state>
+          <state>38</state>
         </option>
         <option>
           <name>OGUseCmsis</name>
@@ -145,11 +145,11 @@
         <option>
           <name>CoreVariant</name>
           <version>22</version>
-          <state>34</state>
+          <state>38</state>
         </option>
         <option>
           <name>GFPUDeviceSlave</name>
-          <state>HT6X3X	Hitrendtech HT6X3X</state>
+          <state>STM32F101xC	ST STM32F101xC</state>
         </option>
         <option>
           <name>FPU2</name>
@@ -168,7 +168,7 @@
         <option>
           <name>GFPUCoreSlave2</name>
           <version>22</version>
-          <state>34</state>
+          <state>38</state>
         </option>
       </data>
     </settings>
@@ -181,7 +181,7 @@
         <debug>1</debug>
         <option>
           <name>CCDefines</name>
-          <state>HT6x3x</state>
+          <state>STM32F10X_HD</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -725,7 +725,7 @@
         </option>
         <option>
           <name>IlinkIcfFile</name>
-          <state>E:\06.MPPC\MPPC_HTxxxx\HTxxxx\Project\HT6X3X.icf</state>
+          <state>$PROJ_DIR$\HT6X3X.icf</state>
         </option>
         <option>
           <name>IlinkIcfFileSlave</name>
@@ -970,15 +970,36 @@
     <name>lib</name>
     <file>
       <name>$PROJ_DIR$\..\Source\library\src\core_cm0.c</name>
+      <excluded>
+        <configuration>HT6x3x</configuration>
+      </excluded>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Source\library\src\core_cm3.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\Source\library\src\ht6xxx_cmu.c</name>
+      <excluded>
+        <configuration>HT6x3x</configuration>
+      </excluded>
     </file>
     <file>
       <name>$PROJ_DIR$\..\Source\library\src\ht6xxx_flash.c</name>
+      <excluded>
+        <configuration>HT6x3x</configuration>
+      </excluded>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Source\library\src\stm32f10x_flash.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\Source\library\src\system_ht6xxx.c</name>
+      <excluded>
+        <configuration>HT6x3x</configuration>
+      </excluded>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Source\library\src\system_stm32f10x.c</name>
     </file>
   </group>
   <file>
